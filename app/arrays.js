@@ -10,7 +10,12 @@ exports.arraysAnswers = {
   },
 
   sum : function(arr) {
+    var sum = 0;
 
+    for ( var i = 0, len = arr.length; i < len; i++ ) {
+      sum += arr[i];
+    };
+    return sum;
   },
 
   remove : function(arr, item) {
