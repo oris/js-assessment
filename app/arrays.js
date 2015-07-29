@@ -44,7 +44,8 @@ exports.arraysAnswers = {
   },
 
   append : function(arr, item) {
-
+    arr[arr.length] = item;
+    return arr;
   },
 
   truncate : function(arr) {
