@@ -111,7 +111,13 @@ exports.arraysAnswers = {
   },
 
   square : function(arr) {
+    var p = exports.arraysAnswers,
+      squares = [];
 
+    for ( var i = 0, len = arr.length; i < len; i++ ) {
+      p.append( squares, arr[i] * arr[i] )
+    }
+    return squares;
   },
 
   findAllOccurrences : function(arr, target) {
