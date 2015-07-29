@@ -31,7 +31,16 @@ exports.arraysAnswers = {
   },
 
   removeWithoutCopy : function(arr, item) {
+    var i = 0;
 
+    do {
+      if ( arr[i] === item ) {
+        arr.splice(i, 1);
+        continue
+      };
+      i++
+    } while ( arr[i] );
+    return arr;
   },
 
   append : function(arr, item) {
