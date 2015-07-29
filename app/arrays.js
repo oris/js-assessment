@@ -64,7 +64,13 @@ exports.arraysAnswers = {
   },
 
   concat : function(arr1, arr2) {
+    var p = exports.arraysAnswers,
+      arr3 = arr1;
 
+    for ( var i = 0, len = arr2.length; i < len; i++ ) {
+      p.append(arr3, arr2[i]);
+    };
+    return arr3;
   },
 
   insert : function(arr, item, index) {
