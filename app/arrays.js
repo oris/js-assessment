@@ -121,6 +121,12 @@ exports.arraysAnswers = {
   },
 
   findAllOccurrences : function(arr, target) {
+    var p = exports.arraysAnswers,
+      occurs = [];
 
+    for ( var i = 0, len = arr.length; i < len; i++ ) {
+      if ( arr[i] === target ) p.append( occurs, i );
+    };
+    return occurs;
   }
 };
