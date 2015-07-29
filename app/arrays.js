@@ -92,7 +92,22 @@ exports.arraysAnswers = {
   },
 
   duplicates : function(arr) {
+    var p = exports.arraysAnswers,
+      bunnies = [],
+      catchEmNow = function catchEm(ar) {
+        if ( !ar.length ) return; // end recursion
 
+        if ( p.count( ar, ar[0] ) > 1 ) {
+          p.append( bunnies, ar[0] );
+          a = p.removeWithoutCopy( ar, ar[0] );
+        } else {
+          a = p.curtail(ar);
+        };
+        catchEm(a); // start recursion
+    }
+
+    catchEmNow(arr);
+    return bunnies;
   },
 
   square : function(arr) {
