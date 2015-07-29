@@ -74,7 +74,12 @@ exports.arraysAnswers = {
   },
 
   insert : function(arr, item, index) {
+    var p = exports.arraysAnswers,
+      arr1 = arr.slice(0, index),
+      arr2 = arr.slice(index, arr.length);
 
+    p.append(arr1, item);
+    return p.concat(arr1, arr2);
   },
 
   count : function(arr, item) {
