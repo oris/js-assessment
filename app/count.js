@@ -16,5 +16,11 @@ exports.countAnswers =  {
     };
 
     countNow();
+
+    return {
+      cancel : function () {
+        num = end + 1;
+      }
+    };
   }
 };
