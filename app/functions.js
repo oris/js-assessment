@@ -34,7 +34,13 @@ exports.functionsAnswers = {
   },
 
   useArguments : function() {
+    var sum = 0;
 
+    for (var i = 0, len = arguments.length; i < len; i++) {
+      sum += arguments[i];
+    }
+
+    return sum;
   },
 
   callIt : function(fn) {
