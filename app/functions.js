@@ -21,12 +21,11 @@ exports.functionsAnswers = {
     for (var i = 0, len = arr.length; i < len; i++) {
       (function () {
         var x = arr[i];
-        var func = function() {
-          return fn(x);
-        };
-        res.push(func);
+
+        res.push(function() { return fn(x) });
       })();
     };
+
     return res;
   },
 
