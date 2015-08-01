@@ -16,7 +16,18 @@ exports.functionsAnswers = {
   },
 
   makeClosures : function(arr, fn) {
+    var res = [];
 
+    for (var i = 0, len = arr.length; i < len; i++) {
+      (function () {
+        var x = arr[i];
+        var func = function() {
+          return fn(x);
+        };
+        res.push(func);
+      })();
+    };
+    return res;
   },
 
   partial : function(fn, str1, str2) {
