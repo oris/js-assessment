@@ -19,10 +19,11 @@ exports.functionsAnswers = {
     var res = [];
 
     for (var i = 0, len = arr.length; i < len; i++) {
-      (function () {
-        var x = arr[i];
+      (function () {  // Keep environment for each array element
+        var x = arr[i];  // Need to encapsulate this value
 
         res.push(function() { return fn(x) });
+        // Store the fn(x) as code, not evaluated
       })();
     };
 
