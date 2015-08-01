@@ -11,7 +11,7 @@ exports.functionsAnswers = {
 
   functionFunction : function(str) {
     return function(str2) {
-      return str + ', ' + str2
+      return str + ', ' + str2;
     }
   },
 
