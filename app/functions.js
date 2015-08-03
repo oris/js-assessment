@@ -51,7 +51,9 @@ exports.functionsAnswers = {
   },
 
   partialUsingArguments : function(fn) {
+    var args = Array.prototype.slice.call(arguments, 1);
 
+    return Function.prototype.bind.apply(fn, [null].concat(args));
   },
 
   curryIt : function(fn) {
