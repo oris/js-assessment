@@ -57,6 +57,14 @@ exports.functionsAnswers = {
   },
 
   curryIt : function(fn) {
+    var sa = [];  //saved arguments
 
+    return function getArg(a) {
+      if (a) { sa.push(a); }
+      if (fn.length === sa.length) {
+        return fn.apply(this, sa);
+      }
+      return getArg;
+    };
   }
 };
