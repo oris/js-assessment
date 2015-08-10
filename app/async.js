@@ -8,6 +8,16 @@ exports.asyncAnswers = {
   },
 
   manipulateRemoteData : function(url) {
+    var result = [],
+      dfd = $.Deferred();
 
+    $.when($.getJSON(url)).then(function(data) {
+      result = data.people.map(function(person) {
+        return person.name;
+      }).sort();
+      dfd.resolve(result);
+    });
+
+    return dfd.promise();
   }
 };
