@@ -5,7 +5,7 @@ exports.arraysAnswers = {
   indexOf : function(arr, item) {
     for ( var i = 0, len = arr.length; i < len; i++ ) {
       if ( arr[i] === item ) return i;
-    };
+    }
     return -1;
   },
 
@@ -14,7 +14,7 @@ exports.arraysAnswers = {
 
     for ( var i = 0, len = arr.length; i < len; i++ ) {
       sum += arr[i];
-    };
+    }
     return sum;
   },
 
@@ -25,8 +25,8 @@ exports.arraysAnswers = {
       if ( arr[i] !== item ) {
         ar[j] = arr[i];
         j++;
-      };
-    };
+      }
+    }
     return ar;
   },
 
@@ -36,9 +36,9 @@ exports.arraysAnswers = {
     do {
       if ( arr[i] === item ) {
         arr.splice(i, 1);
-        continue
-      };
-      i++
+        continue;
+      }
+      i++;
     } while ( arr[i] );
     return arr;
   },
@@ -69,7 +69,7 @@ exports.arraysAnswers = {
 
     for ( var i = 0, len = arr2.length; i < len; i++ ) {
       p.append(arr3, arr2[i]);
-    };
+    }
     return arr3;
   },
 
@@ -87,26 +87,26 @@ exports.arraysAnswers = {
 
     for ( var i = 0, len = arr.length; i < len; i++ ) {
       if ( arr[i] === item ) counts++;
-    };
+    }
     return counts;
   },
 
   duplicates : function(arr) {
     var p = exports.arraysAnswers,
-      bunnies = [],
-      catchEmNow = function catchEm(ar) {
-        if ( !ar.length ) return; // end recursion
+      bunnies = [];
 
-        if ( p.count( ar, ar[0] ) > 1 ) {
-          p.append( bunnies, ar[0] );
-          a = p.removeWithoutCopy( ar, ar[0] );
-        } else {
-          a = p.curtail(ar);
-        };
-        catchEm(a); // start recursion
+    function catchEm(ar) {
+      if ( !ar.length ) return; // end recursion
+
+      if ( p.count( ar, ar[0] ) > 1 ) {
+        p.append( bunnies, ar[0] );
+        catchEm( p.removeWithoutCopy( ar, ar[0] ) );
+      } else {
+        catchEm( p.curtail(ar) );
+      }
     }
 
-    catchEmNow(arr);
+    catchEm(arr);
     return bunnies;
   },
 
@@ -115,7 +115,7 @@ exports.arraysAnswers = {
       squares = [];
 
     for ( var i = 0, len = arr.length; i < len; i++ ) {
-      p.append( squares, arr[i] * arr[i] )
+      p.append( squares, arr[i] * arr[i] );
     }
     return squares;
   },
@@ -126,7 +126,7 @@ exports.arraysAnswers = {
 
     for ( var i = 0, len = arr.length; i < len; i++ ) {
       if ( arr[i] === target ) p.append( occurs, i );
-    };
+    }
     return occurs;
   }
 };
